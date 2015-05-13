@@ -4,3 +4,7 @@ $("input[type=button]").click(function(event) {
 	$("ul.sugestoes li:last").clone().appendTo("ul.sugestoes").find("span:first").text(sugestao);
 
 });
+
+$("ul.sugestoes li").dblclick(function(event) {
+	$(this).remove();
+});
