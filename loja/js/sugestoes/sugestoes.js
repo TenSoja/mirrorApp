@@ -5,6 +5,6 @@ $("input[type=button]").click(function(event) {
 
 });
 
-$("ul.sugestoes li").dblclick(function(event) {
+$("ul.sugestoes").on("dblclick", "li", function(event) {
 	$(this).remove();
 });
