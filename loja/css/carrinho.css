@@ -188,3 +188,7 @@ div > a:first-child{
  text-shadow: 5px 5px 10px grey;
  text-decoration: none;
 }
+
+.invisivel {
+  display: none;
+}
