@@ -1,11 +1,11 @@
 var formatadorMoeda = {
 	simbolo: "R$ ",
 
-	function numberParaReal(numero) {
+	numberParaReal: function(numero) {
 		return "R$ " + numero.toFixed(2).replace(".", ",");
 	},
 
-	function realParaNumber(texto) {
+	realParaNumber: function(texto) {
 		return parseFloat(texto.replace("R$ ", "").replace(",", "."));
 	}
 };
