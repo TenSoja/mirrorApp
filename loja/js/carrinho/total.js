@@ -1,25 +1,27 @@
-var inputs = document.querySelectorAll("#carrinho input");
+(function() {
+	var inputs = document.querySelectorAll("#carrinho input");
 
-for(var i = 0; i < inputs.length; i++) {
-	inputs[i].addEventListener("input", function(event) {
+	for (var i = 0; i < inputs.length; i++) {
+		inputs[i].addEventListener("input", function(event) {
 
-		var input = this;
+			var input = this;
 
-		var li = input.parentNode.parentNode.parentNode;
+			var li = input.parentNode.parentNode.parentNode;
 
-		var spans = li.querySelectorAll("span");
+			var spans = li.querySelectorAll("span");
 
-		var spanValorUnitario = spans[0];
+			var spanValorUnitario = spans[0];
 
-		var spanValorTotal = spans[1];
+			var spanValorTotal = spans[1];
 
-		var quantidade = input.value;
+			var quantidade = input.value;
 
-		var valorUnitario = formatadorMoeda.realParaNumber(spanValorUnitario.textContent);
+			var valorUnitario = formatadorMoeda.realParaNumber(spanValorUnitario.textContent);
 
-		var novoTotal = quantidade * valorUnitario;
+			var novoTotal = quantidade * valorUnitario;
 
-		spanValorTotal.textContent = formatadorMoeda.numberParaReal(novoTotal);
+			spanValorTotal.textContent = formatadorMoeda.numberParaReal(novoTotal);
 
-	});
-}
+		});
+	}
+})();
