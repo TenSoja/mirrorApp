@@ -18,3 +18,24 @@ $(document.body).on('keyup', $("input[type=text]"), function(event) {
 		adicionaEvento();
 	}
 });
+
+(function($) {
+	"use strict"
+	$("input[type=text]").autocomplete({
+		source: function(entrada, resposta) {
+			var sugestoesParecidas = [];
+
+			var novaSugestao = new RegExp(entrada.term, "i");
+
+			$(".sugestao").each(function() {
+				var sugestaoExistente = $(this).text();
+				if (sugestaoExistente.match(novaSugestao)) {
+					sugestoesParecidas.push(sugestaoExistente);
+				}
+
+			});
+
+			resposta(sugestoesParecidas);
+		}
+	});
+})(jQuery);
