@@ -1,7 +1,7 @@
 (function($) {
 	"use scrict";
 
-	var sacola = $("sacola");
+	var sacola = $(".sacola");
 
 	if (!sacola.data("total")) {
 		sacola.data("total", 0);
