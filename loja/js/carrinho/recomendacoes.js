@@ -28,3 +28,8 @@ setInterval(function() {
 	});
 
 });
+
+$(document).one("novasRecomendacoes", function(event, retorno) {
+	$("<a>").text("Novas Recomendações").addClass('aviso-recomendacao')
+		.attr("href", "#recomendacoes").insertAfter('.aviso');
+});
