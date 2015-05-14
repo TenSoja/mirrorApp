@@ -1,4 +1,4 @@
-(function recomendacao() {
+(function recomendacao(fm) {
 
 	$.getJSON("http://mirrorfashion.caelum.com.br/produtos?callback=?",
 		function(retorno) {
@@ -28,7 +28,7 @@
 	});
 
 	setTimeout(recomendacao, 5000);
-})();
+})(formatadorMoeda);
 
 $(document).one("novasRecomendacoes", function(event, retorno) {
 	$("<a>").text("Novas Recomendações").addClass('aviso-recomendacao')
