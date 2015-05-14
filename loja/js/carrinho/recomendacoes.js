@@ -1,4 +1,5 @@
 (function recomendacao(fm) {
+	"use strict"
 
 	$.getJSON("http://mirrorfashion.caelum.com.br/produtos?callback=?",
 		function(retorno) {

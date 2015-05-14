@@ -1,4 +1,5 @@
 (function() {
+	"use strict"
 	var inputs = document.querySelectorAll("#carrinho input");
 
 	for (var i = 0; i < inputs.length; i++) {
