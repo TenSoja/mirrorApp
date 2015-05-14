@@ -1,4 +1,4 @@
-function adicionaEvento() {
+function adicionaSugestao() {
 	if ($("input[type=text]").val() != "") {
 		var sugestao = $("input[type=text]").val();
 		$("ul.sugestoes li:last").clone().addClass('sugestao-inserida').appendTo("ul.sugestoes").find("span:first").text(sugestao);
@@ -6,7 +6,7 @@ function adicionaEvento() {
 }
 
 $("input[type=button]").click(function(event) {
-	adicionaEvento();
+	adicionaSugestao();
 });
 
 $("ul.sugestoes").on("dblclick", "li", function(event) {
@@ -15,7 +15,7 @@ $("ul.sugestoes").on("dblclick", "li", function(event) {
 
 $(document.body).on('keyup', $("input[type=text]"), function(event) {
 	if (event.keyCode == 13) {
-		adicionaEvento();
+		adicionaSugestao();
 	}
 });
 
