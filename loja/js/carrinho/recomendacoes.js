@@ -1,11 +1,11 @@
-setInterval(function() {
+(function recomendacao() {
 
 	$.getJSON("http://mirrorfashion.caelum.com.br/produtos?callback=?",
 		function(retorno) {
 
 			$(document).trigger("novasRecomendacoes", retorno);
 
-		}, 5000);
+		});
 
 	$(document).on("novasRecomendacoes", function(event, retorno) {
 
@@ -27,7 +27,8 @@ setInterval(function() {
 		ul.appendTo(painel);
 	});
 
-});
+	setTimeout(recomendacao, 5000);
+})();
 
 $(document).one("novasRecomendacoes", function(event, retorno) {
 	$("<a>").text("Novas Recomendações").addClass('aviso-recomendacao')
