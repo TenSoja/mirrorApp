@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app>
   <head>
     <title>Mirror Fashion</title>
     <meta charset="utf-8" />
@@ -37,71 +37,38 @@
 				</ul>				
 			</div>
 
-      <ul id="carrinho">
+      <ul id="carrinho" ng-controller="ProdutoController">
 
-        <li id="item1" class="clearfix">
-          <a href="produto1.html">  
-           <img alt="Produto 1" src="../img/produto-1.jpg" />        
-						<h3>Furlan Mistery Cardigan</h3>
+        <li id="item{{ produto.id }}" class="clearfix" ng-repeat="produto in produtos">
+          <a href="../produto/{{ produto.id }}.html">  
+           <img alt="{{ produto.nome }}" ng-src="../{{ produto.imagem }}" />        
+						<h3>{{ produto.nome }}</h3>
 					</a>          
 					<div class="item_info">
-            <small>Código: <strong>#00AMT01</strong></small>
-            <p>Valor unitário: <span id="item1_valor_unit">R$ 120,00</span></p>
+            <small>Código: <strong>{{ produto.codigo }}</strong></small>
+            <p>Valor unitário: <span id="item1_valor_unit">R$ {{ produto.preco }}</span></p>
           </div>
           <form action="/" method="post">
             <p>
-              <label for="item1_quantidade">Quantidade:</label>
-              <input id="item1_quantidade" type="text" value="1" maxlength="2"/>
+              <label for="item{{ produto.id }}_quantidade">Quantidade:</label>
+              <input ng-model="produto.quantidade" id="item{{ produto.id }}_quantidade" type="text" value="1" maxlength="2"/>
               <a href="#">Excluir</a>
             </p>
           </form>
-          <p>Valor total: <span id="item1_valor_total">R$ 120,00</span></p>
+          <p>Valor total: <span id="item{{ produto.id }}valor_total">R$ {{ produto.preco * produto.quantidade }}</span></p>
         </li>
-
-        <li id="item2" class="clearfix">
-          <a href="produto2.html"> 
-            <img alt="Produto 2" src="../img/produto-2.jpg" />       
-						<h3>Asos Marital Collar Cardigan</h3>
-					</a>  
-          <div class="item_info">
-            <small>Código: <strong>#00AMT02</strong></small>
-            <p>Valor unitário: <span id="item2_valor_unit">R$ 74,00</span></p>
-          </div>
-          <form action="/" method="post">
-            <p>
-              <label for="item2_quantidade">Quantidade:</label>
-              <input id="item2_quantidade" type="text" value="1" maxlength="2"/>
-              <a href="#">Excluir</a>
-            </p>
-          </form>
-          <p>Valor total: <span id="item2_valor_total">R$ 74,00</span></p>
-        </li>
-
-        <li id="item3" class="clearfix">
-          <a href="produto3.html">   
-          <img alt="Produto 3" src="../img/produto-3.jpg" />
-						<h3>Asos Merino Shawl Collar Cardigan</h3>
-					</a>  
-          <div class="item_info">
-            <small>Código: <strong>#00AMT03</strong></small>
-            <p>Valor unitário: <span id="item3_valor_unit">R$ 109,00</span></p>
-          </div>
-          <form action="/" method="post">
-            <p>
-              <label for="item3_quantidade">Quantidade:</label>
-              <input id="item3_quantidade" type="text" value="1" maxlength="2"/>
-              <a href="#">Excluir</a>
-            </p>
-          </form>
-          <p>Valor total: <span id="item3_valor_total">R$ 109,00</span></p>
-        </li>
-
       </ul>
       
-      <div id="recomendacoes" class="container">
+      <div id="recomendacoes" class="container" ng-controller="RecomendacaoController">
         
         <h3>Veja o que outras pessoas já compraram na Mirror Fashion</h3>
-        <ul></ul>
+        <ul>
+          <li ng-repeat="produto in produtos">
+            <img ng-src="../{{ produto.imagem }}"/>
+            <p>{{ produto.nome }}</p>
+            <p>R$ {{ produto.preco }}</p>
+          </li>
+        </ul>
       </div>  
 
       <div id="consulta_frete" class="clearfix">
@@ -127,5 +94,11 @@
 
       </div>
     </footer>
+     <script src="../js/lib/angular.js"></script>
+     <script src="../js/controller/RecomendacaoController.js"></script>
+     <script src="../js/controller/ProdutoController.js"></script>
+    <script src="../js/lib/jquery.js"></script>
+    <script src="../js/lib/input-plugin.js"></script>
+    <script src="../js/carrinho/ativa-filtro.js"></script>
   </body>
 </html>
