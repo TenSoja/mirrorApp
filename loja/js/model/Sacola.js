@@ -1,7 +1,7 @@
-function Sacola() {
+function Sacola(total) {
 	"use strict"
 
-	var total = 0;
+	var total = total || 0;
 
 	this.obterTotal = function() {
 		return total;
